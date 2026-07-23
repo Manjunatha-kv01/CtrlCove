@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CYMOS Browser Companion</title>
+    <link rel="stylesheet" href="sidepanel.css" />
+  </head>
+  <body>
+    <main class="panel-shell">
+      <header class="panel-header">
+        <div>
+          <p class="eyebrow">CYMOS</p>
+          <h1>Browser Companion</h1>
+        </div>
+        <span class="status-chip" id="capture-status">Checking site</span>
+      </header>
+
+      <section aria-labelledby="site-heading" class="section-block">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Current site</p>
+            <h2 id="site-heading">No supported page</h2>
+          </div>
+          <button class="button button-primary" id="site-toggle" type="button">Enable this site</button>
+        </div>
+        <p class="site-url" id="site-url">Open an HTTP or HTTPS page to begin.</p>
+        <label class="toggle-row" for="visual-capture">
+          <span>
+            <strong>Visual context</strong>
+            <small>Capture a visible page image only when visual AI is configured.</small>
+          </span>
+          <input id="visual-capture" type="checkbox" />
+        </label>
+        <p class="visual-budget" id="visual-budget"></p>
+      </section>
+
+      <section aria-labelledby="guide-heading" class="section-block guide-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Next steps</p>
+            <h2 id="guide-heading">Waiting for a pause</h2>
+          </div>
+          <span class="source-label" id="guide-source">Local only</span>
+        </div>
+        <p class="guide-summary" id="guide-summary">Enable this site, then pause over a field, link, or control.</p>
+        <ol class="guide-list" id="guide-list"></ol>
+        <button class="button button-secondary" disabled id="save-guide" type="button">Save guide to CYMOS</button>
+      </section>
+
+      <section aria-labelledby="activity-heading" class="section-block activity-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">This session</p>
+            <h2 id="activity-heading">Capture activity</h2>
+          </div>
+          <div class="button-row">
+            <button class="button button-tertiary button-compact" disabled id="clear-activity" type="button">Clear page</button>
+            <button class="button button-tertiary button-compact" disabled id="clear-all-capture-data" type="button">Clear all</button>
+          </div>
+        </div>
+        <p class="activity-summary" id="activity-summary"></p>
+        <ul class="activity-list" id="activity-list"></ul>
+      </section>
+
+      <section aria-labelledby="ai-heading" class="section-block ai-section">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Optional visual AI</p>
+            <h2 id="ai-heading">Session-only credentials</h2>
+          </div>
+          <span class="source-label" id="ai-status">Disabled</span>
+        </div>
+        <form class="ai-form" id="ai-form">
+          <label for="ai-endpoint">OpenAI-compatible vision endpoint</label>
+          <input autocomplete="url" id="ai-endpoint" inputmode="url" placeholder="https://api.example.com/v1/chat/completions" type="url" />
+          <label for="ai-model">Model</label>
+          <input id="ai-model" placeholder="vision-model" type="text" />
+          <label for="ai-key">API key</label>
+          <input autocomplete="off" id="ai-key" maxlength="1024" placeholder="Stored for this browser session only" spellcheck="false" type="password" />
+          <label class="toggle-row compact" for="ai-enabled">
+            <span><strong>Enable visual AI</strong></span>
+            <input id="ai-enabled" type="checkbox" />
+          </label>
+          <div class="button-row">
+            <button class="button button-primary" type="submit">Save AI connection</button>
+            <button class="button button-tertiary" id="clear-key" type="button">Clear AI access</button>
+          </div>
+        </form>
+      </section>
+
+      <p aria-live="polite" class="notice" id="notice"></p>
+    </main>
+    <script src="sidepanel.js" type="module"></script>
+  </body>
+</html>
