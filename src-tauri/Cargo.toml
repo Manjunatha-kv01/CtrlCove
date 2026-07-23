@@ -1,0 +1,23 @@
+[package]
+name = "cymos"
+version = "1.0.0"
+description = "CYMOS v1.0 Personal Cognitive Operating System"
+authors = ["CYMOS"]
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2.3.1", features = [] }
+
+[dependencies]
+arboard = "3.6.1"
+ed25519-dalek = { version = "2.1.1", features = ["rand_core"] }
+hex = "0.4.3"
+image = "0.25.10"
+reqwest = { version = "0.12.22", default-features = false, features = ["json", "rustls-tls"] }
+rand_core = { version = "0.6.4", features = ["getrandom"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10.9"
+sqlx = { version = "0.8.6", features = ["runtime-tokio", "sqlite"] }
+tauri = { version = "2.7.0", features = [] }
+tokio = { version = "1.46.1", features = ["sync", "time"] }

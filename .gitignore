@@ -1,0 +1,13 @@
+/node_modules
+/dist
+/src-tauri/target
+/src-tauri/gen
+*.log
+.DS_Store
+database/*.db
+database/*.db-*
+database/assets/
+database/backups/
+database/exports/
+src-tauri/database/*.db
+src-tauri/database/*.db-*

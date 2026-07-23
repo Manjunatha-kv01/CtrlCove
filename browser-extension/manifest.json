@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "CYMOS Browser Companion",
+  "version": "0.1.0",
+  "description": "An opt-in, local-first browsing guide for CYMOS.",
+  "minimum_chrome_version": "114",
+  "permissions": [
+    "activeTab",
+    "clipboardWrite",
+    "scripting",
+    "sidePanel",
+    "storage"
+  ],
+  "optional_host_permissions": [
+    "https://*/*",
+    "http://localhost/*",
+    "http://127.0.0.1/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; script-src 'self'; object-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https: http://localhost:* http://127.0.0.1:*; base-uri 'none'; frame-src 'none'; form-action 'none'"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Open CYMOS Browser Companion"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  }
+}
