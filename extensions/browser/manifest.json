@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "CYMOS - Memory Capture",
+  "version": "1.0.0",
+  "description": "Capture web pages and snippets directly into CYMOS.",
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "storage"
+  ],
+  "host_permissions": [
+    "http://localhost:11435/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Save to CYMOS"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
